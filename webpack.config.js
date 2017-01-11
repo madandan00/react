@@ -19,40 +19,23 @@ module.exports = {
 			},
 			
 			//es6解析
-			{
-				test:/\.js$/,
-				loader:'babel-loader?presets[]=es2015'
-			},
+//			{
+//				test:/\.js$/,
+//				loader:'babel-loader?presets[]=es2015'
+//			},
+            {
+            	test:/\.js/,
+            	loader:'jsx'
+            },
 			
 			{
 				test:/\.scss$/,
 				//loader:'style!css!sass'//loader的解析从后向前
 				loader:ET.extract('style','css!sass')
 				//串行!和并行,
-			},
-			
-			{
-				test:/\.html/,
-				//后缀名叫什么都行。叫.html只是惯例
-				loader:'string'
-			},
-			{
-				test:/\.vue$/,
-				loader:'vue'
 			}
 		]
 	},
-	vue: {
-	    loaders: {
-	      js: 'babel'
-	    }
-    }, 
-//	resolve:{
-//		alias:{
-//			'vue$':'vue/dist/vue.min.js'
-//		}
-//	},
-	//devServer启动
 	devServer:{
 		contentBase:__dirname + "/prd",
 		port:80,
